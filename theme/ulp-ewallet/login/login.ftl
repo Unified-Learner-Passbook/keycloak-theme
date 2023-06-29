@@ -19,16 +19,6 @@
             }
         </script>
     <#elseif section = "form">
-        <div>
-            <center>
-                <img class="leftlogo" src="${url.resourcesPath}/img/logo.png" alt="ULP in UP">
-                <br>
-                <br>
-                <img class="textlogo" src="${url.resourcesPath}/img/wallet_logo.png" alt="ULP Text">
-            </center>
-            <br>
-            <br>
-        </div>
         <div class="box-container user_div">
         <#if realm.password>
             <div class="form_div">

@@ -22,13 +22,23 @@
         <div class="logindiv">
             <div class="login-content-remove">
                 <div class="box-remove">
+                    <div>
+                        <img class="leftarrow" src="${url.resourcesPath}/img/back_arrow.png" alt="ULP in UP" onclick="history.back()">
+                        <center>
+                            <img class="leftlogo" src="${url.resourcesPath}/img/logo.png" alt="ULP in UP">
+                            <br>
+                            <br>
+                            <img class="textlogo" src="${url.resourcesPath}/img/wallet_logo.png" alt="ULP Text">
+                        </center>
+                        <br>
+                    </div>
                     <#if displayMessage && message?has_content>
-                    <div class="alert alert-${message.type}">
+                    <div class="div_message alert alert-${message.type}">
                         <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
                         <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!}"></span></#if>
                         <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!}"></span></#if>
                         <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-                        <span class="message-text">${message.summary}</span>
+                        <center><font class="message-text login_message">${message.summary}</font></center>
                     </div>
                     </#if>
                     <#nested "form">
