@@ -77,9 +77,8 @@
                                 name="login" id="kc-login" type="submit" value="Get OTP →"/>
                     </div>
                     <div id="kc-form-buttons" class="flex-center pt-1p">
-                        <input class="btn-blue Urbanist" type="button" onclick="location.href='https://prod-avsar.uniteframework.io/register';" value="Register as New User →"/>
+                        <input class="btn-blue Urbanist" type="button" onclick="registerLink();" value="Register as New User →"/>
                     </div>
-                    <!--<div class="fs-13 fw-400 pt-1p pooppins text-center">Not registered Yet? <a class="anker-r" href="https://prod-avsar.uniteframework.io/register">Register Here</a></div>-->
                 </form>
             </#if>
             <#if realm.password && social.providers??>
@@ -94,5 +93,15 @@
                 </div></center>
             </#if>
         </div>
+        <script>
+            function registerLink() {
+                const searchParams = new URLSearchParams(window.location.search);
+                const redirectURL=searchParams.get('redirect_uri');
+                const url = new URL(redirectURL);  
+                const domain = url.hostname;  
+                const protocol =url.protocol;
+                location.href=protocol+'//'+domain+'/register';
+            }
+        </script>
     </#if>
 </@layout.registrationLayout>

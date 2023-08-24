@@ -54,7 +54,7 @@
                         <div class="flex-center pt-1p">
                             <input class="btn-blue Urbanist" type="submit" value="Login" tabindex="3">
                         </div>
-                        <div class="fs-13 fw-400 pt-1p pooppins text-center">Not registered Yet? <a class="anker-r" href="https://prod-avsar.uniteframework.io/register">Register Here</a></div>
+                        <div class="fs-13 fw-400 pt-1p pooppins text-center">Not registered Yet? <a class="anker-r" onclick="registerLink();">Register Here</a></div>
                     </form>
                 </div>
             </div>
@@ -69,5 +69,15 @@
             </div></center>
         </#if>
         </div>
+        <script>
+            function registerLink() {
+                const searchParams = new URLSearchParams(window.location.search);
+                const redirectURL=searchParams.get('redirect_uri');
+                const url = new URL(redirectURL);  
+                const domain = url.hostname;  
+                const protocol =url.protocol;
+                location.href=protocol+'//'+domain+'/register';
+            }
+        </script>
     </#if>
 </@layout.registrationLayout>
