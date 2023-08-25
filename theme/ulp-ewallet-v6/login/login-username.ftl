@@ -21,7 +21,9 @@
                                                     aria-invalid="<#if message?has_content && message.type = 'error'>true</#if>"
                                                     class="${properties.kcInputClass!}" name="username"
                                                     value="${(login.username!'')}"
-                                                    type="text" disabled/>
+                                                    type="text" disabled
+                                                    pattern="[6-9]{1}[0-9]{9}"
+                                                    onkeypress="javascript:return isNum(event)"/>
                                             <label class="roboto">Enter Mobile Number</label>
                                         </div>
                                     </div>
@@ -36,7 +38,9 @@
                                                     aria-invalid="<#if messagesPerField.existsError('username')>true</#if>"
                                                     class="${properties.kcInputClass!}" name="username"
                                                     value="${(login.username!'')}"
-                                                    type="text" autofocus autocomplete="off"/>
+                                                    type="text" autofocus autocomplete="off"
+                                                    pattern="[6-9]{1}[0-9]{9}"
+                                                    onkeypress="javascript:return isNum(event)"/>
                                             <label class="roboto">Enter Mobile Number</label>
                                         </div>
                                     </div>
@@ -101,6 +105,25 @@
                 const domain = url.hostname;  
                 const protocol =url.protocol;
                 location.href=protocol+'//'+domain+'/register';
+            }
+           function isNum(evt)
+           {
+                let textValue=evt.target.value;
+                let textValueLength=textValue.length;
+                if(textValueLength<10)
+                {
+                    var charCode=(evt.which)?evt.which:event.keyCode
+                    if(charCode>31 && (charCode<48 || charCode>57)){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
             }
         </script>
     </#if>

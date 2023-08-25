@@ -18,7 +18,8 @@
 </head>
 
 <body>
-    <div class="logindiv div_blue_box_outer">
+    <br/>
+    <center><div class="logindiv div_blue_box_outer">
         <div class="login-content-remove div_blue_box">
             <div class="box-remove">
                 <!--<div class="flex-center pt-1p">
@@ -51,7 +52,7 @@
                 <#nested "form">
             </div> 
         </div>
-    </div>
+    </div></center>
     <br/>
     <br/>
 </body>

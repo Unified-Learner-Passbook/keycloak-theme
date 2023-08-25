@@ -65,7 +65,8 @@
                                 <div class="label-float">
                                     <input type="text" id="totp" name="totp" autocomplete="off" class="${properties.kcInputClass!}"
                                         aria-invalid="<#if messagesPerField.existsError('totp')>true</#if>"
-                                    />
+                                        pattern="[0-9]{6}"
+                                        onkeypress="javascript:return isNum(event)"/>
                                     <label class="roboto">Enter OTP</label>
                                 </div>
                             </div>
@@ -122,5 +123,26 @@
             </div>
         </form>
         </div>
+        <script>
+           function isNum(evt)
+           {
+                let textValue=evt.target.value;
+                let textValueLength=textValue.length;
+                if(textValueLength<6)
+                {
+                    var charCode=(evt.which)?evt.which:event.keyCode
+                    if(charCode>31 && (charCode<48 || charCode>57)){
+                        return false;
+                    }
+                    else{
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        </script>
     </#if>
 </@layout.registrationLayout>
